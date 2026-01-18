@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Mo Matcha — premium ready-to-drink matcha lemonade. Smooth energy, premium taste, no crash." />
+  <title>Mo Matcha — Mo Matcha, Mo Moments</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mo Matcha — Premium Ready-to-Drink Matcha" />
+  <meta property="og:description" content="Premium matcha lemonade in elegant glass. Smooth energy, modern lifestyle, no crash." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg: #0f241c;        /* deep forest green */
+      --bg2:#0b1a14;
+      --cream:#f3efe4;      /* cream */
+      --muted:#cfc8b8;
+      --line: rgba(243,239,228,.18);
+      --card: rgba(243,239,228,.06);
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+    .bottleImg{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;    /* fills the box without distortion */
+        border-radius: 22px;
+        display: block;
+}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Libre Baskerville", Baskerville, "Times New Roman", serif;
+      background:
+        radial-gradient(1200px 800px at 15% 10%, rgba(243,239,228,.12), transparent 55%),
+        radial-gradient(900px 700px at 85% 5%, rgba(243,239,228,.06), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--cream);
+      letter-spacing: .2px;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 0 20px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(243,239,228,.08);
+      color: var(--cream);
+      font-weight: 600;
+      gap:10px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(243,239,228,.12); border-color: rgba(243,239,228,.30);}
+    .btn.primary{
+      background: var(--cream);
+      color: #0b1a14;
+      border-color: rgba(243,239,228,.65);
+    }
+    .btn.primary:hover{background:#fff; border-color:#fff;}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(15,36,28,.28);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .grid{display:grid; gap:18px;}
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .muted{color: var(--muted)}
+    .h1{
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.02;
+      margin: 12px 0 10px;
+      letter-spacing: -0.6px;
+    }
+    .h2{
+      font-size: clamp(22px, 2.4vw, 34px);
+      margin: 0 0 10px;
+      letter-spacing: -0.4px;
+    }
+    .lead{
+      font-size: clamp(16px, 1.35vw, 18px);
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+      max-width: 64ch;
+    }
+    .section{padding: 68px 0;}
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11,26,20,.65);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      height: 64px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 750;
+      letter-spacing: .6px;
+    }
+    .logoMark{
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: url("logo.png") center / contain no-repeat;
+        }
+
+    .navlinks{
+      display:flex; gap: 14px; align-items:center;
+    }
+    .navlinks a{
+      font-size: 14px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background .12s ease, border-color .12s ease, color .12s ease;
+    }
+    .navlinks a:hover{
+      background: rgba(243,239,228,.06);
+      border-color: rgba(243,239,228,.15);
+      color: var(--cream);
+    }
+    .hero{
+      padding: 54px 0 26px;
+    }
+    .heroGrid{
+      grid-template-columns: 1.15fr .85fr;
+      align-items: stretch;
+    }
+    .heroCard{
+      padding: 26px;
+      border-radius: var(--radius2);
+      position: relative;
+      overflow: hidden;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-60px -60px auto auto;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle at 30% 30%, rgba(243,239,228,.22), transparent 60%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .heroActions{display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px;}
+    .statRow{
+      display:grid; grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px; margin-top: 18px;
+    }
+    .stat{
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(243,239,228,.05);
+    }
+    .stat b{display:block; font-size: 16px;}
+    .stat span{display:block; color: var(--muted); font-size: 12px; margin-top: 4px; line-height:1.35;}
+    .productCard{
+      padding: 22px;
+      border-radius: var(--radius2);
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 100%;
+    }
+    .bottleMock{
+      aspect-ratio: 4/5;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(120px 120px at 50% 18%, rgba(243,239,228,.35), transparent 60%),
+        linear-gradient(180deg, rgba(243,239,228,.14), rgba(15,36,28,.70));
+      position: relative;
+      overflow:hidden;
+    }
+    .bottleMock:after{
+      content:"Mo Matcha";
+      position:absolute;
+      left: 18px; bottom: 16px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      color: rgba(243,239,228,.88);
+      text-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .bottleMock .tag{
+      position:absolute; top: 14px; left: 14px;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(243,239,228,.25);
+      background: rgba(11,26,20,.55);
+      color: var(--muted);
+    }
+
+    .cols2{grid-template-columns: 1fr 1fr;}
+    .cols3{grid-template-columns: repeat(3, minmax(0,1fr));}
+    .cols4{grid-template-columns: repeat(4, minmax(0,1fr));}
+    .feature{padding: 18px;}
+    .feature h3{margin: 0 0 6px; font-size: 16px;}
+    .feature p{margin: 0; color: var(--muted); line-height: 1.5; font-size: 14px;}
+    .divider{
+      height:1px; background: var(--line);
+      margin: 10px 0 0;
+    }
+    .priceBox{padding: 18px;}
+    .priceBox b{font-size: 26px; letter-spacing:-.4px;}
+    .priceBox .muted{font-size: 14px;}
+    .list{
+      margin: 10px 0 0; padding: 0; list-style:none;
+      display:grid; gap: 10px;
+    }
+    .list li{
+      display:flex; gap:10px;
+      align-items:flex-start;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(243,239,228,.12);
+      background: rgba(243,239,228,.04);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .dot{
+      width: 10px; height: 10px; margin-top: 4px;
+      border-radius: 999px;
+      background: rgba(243,239,228,.55);
+      flex: 0 0 10px;
+    }
+
+    .cta{
+      padding: 22px;
+      border-radius: var(--radius2);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .cta .left{max-width: 70ch;}
+    .footer{
+      padding: 26px 0 36px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footerGrid{
+      display:flex; justify-content:space-between; gap: 18px; flex-wrap: wrap;
+      align-items:center;
+    }
+    .tinyLinks{display:flex; gap: 12px; flex-wrap: wrap;}
+    .tinyLinks a{color: var(--muted);}
+    .tinyLinks a:hover{color: var(--cream);}
+
+    /* form */
+    form{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;}
+    input{
+      flex: 1 1 240px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(243,239,228,.20);
+      background: rgba(11,26,20,.55);
+      color: var(--cream);
+      outline: none;
+    }
+    input::placeholder{color: rgba(243,239,228,.45);}
+    .toast{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 18px;
+    }
+
+    /* mobile */
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns: 1fr;}
+      .navlinks{display:none;}
+      .cols4{grid-template-columns: 1fr 1fr;}
+      .cols3{grid-template-columns: 1fr;}
+      .cols2{grid-template-columns: 1fr;}
+      .statRow{grid-template-columns: 1fr;}
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important; scroll-behavior:auto !important;}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <div class="logoMark" aria-hidden="true"></div>
+          <span>MO MATCHA</span>
+        </div>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#product">Product</a>
+          <a href="#benefits">Why Mo</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#story">Story</a>
+        </nav>
+
+        <a class="btn primary" href="#where" aria-label="Find Mo Matcha">
+          Find Mo Matcha
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="grid heroGrid">
+          <div class="card heroCard">
+            <div class="pill">
+              <span aria-hidden="true">●</span>
+              Premium ready-to-drink matcha lemonade • 330ml glass bottle
+            </div>
+
+            <h1 class="h1">Mo Matcha.<br/>Mo Moments.</h1>
+            <p class="lead">
+              Instant, smooth energy in a luxurious bottle. No waiting in cafés, no matcha ceremony,
+              no coffee crash. Just premium matcha lemonade made for busy, health-conscious lives.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn primary" href="#pricing">See pricing</a>
+              <a class="btn" href="#product">What’s inside</a>
+              <a class="btn" href="mailto:rtdmatcha026@gmail.com?subject=Mo%20Matcha%20Order%20%2F%20Partnership">Wholesale / cafés</a>
+            </div>
+
+            <div class="statRow">
+              <div class="stat">
+                <b>330 ml</b>
+                <span>Ready-to-drink in elegant glass</span>
+              </div>
+              <div class="stat">
+                <b>CHF 5.50–6.50</b>
+                <span>Premium retail pricing</span>
+              </div>
+              <div class="stat">
+                <b>Swiss-made</b>
+                <span>Local production, premium positioning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card productCard">
+            <div class="bottleMock" aria-label="Mo Matcha bottle">
+            <img src="bottle.png" alt="Mo Matcha bottle" class="bottleImg" />
+            <div class="tag">Premium • On-the-go</div>
+            </div>
+
+            <div>
+              <div class="divider"></div>
+              <p class="muted" style="margin:12px 0 0; line-height:1.5;">
+                Designed for morning boosts, pre-workout energy, and stylish social moments.
+                A modern matcha ritual you can actually keep up with.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT -->
+  <section class="section" id="product">
+    <div class="wrap">
+      <div class="grid cols2 productSplit">
+
+      <!-- LEFT: text + features -->
+        <div>
+          <h2 class="h2">The product</h2>
+          <p class="lead">
+            Mo Matcha is a 330 ml bottled matcha lemonade with a refreshing citrus finish.
+            Premium taste, smooth energy, and a clean, modern design.
+          </p>
+
+          <div class="grid featureStack">
+            <div class="card feature">
+              <h3>Smooth, sustained energy</h3>
+              <p>Matcha energy without the “coffee spike then regret” storyline.</p>
+            </div>
+
+            <div class="card feature">
+              <h3>Convenient, ready-to-drink</h3>
+              <p>No prep, no barista queue, no skill requirement. Just open and go.</p>
+            </div>
+
+            <div class="card feature">
+              <h3>Premium, lifestyle design</h3>
+              <p>Elegant glass packaging that looks as good as it tastes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: image -->
+        <div class="card productImageCard">
+          <img src="tonsofbottles.png" alt="Matcha bottles in the factory" class="productImg" />
+        </div>
+
+      </div>
+    </div>
+</section>
+
+
+    <!-- BENEFITS -->
+    <section class="section" id="benefits">
+      <div class="wrap">
+        <h2 class="h2">Why Mo</h2>
+        <p class="lead">Built for students, professionals, creatives, and wellness-minded humans who value style, efficiency, and well-being.</p>
+
+        <div style="height:18px"></div>
+
+        <div class="grid cols4">
+          <div class="card feature">
+            <h3>Refreshing flavor</h3>
+            <p>Bright lemon + authentic matcha for a crisp finish.</p>
+          </div>
+          <div class="card feature">
+            <h3>Health-conscious</h3>
+            <p>Natural ingredients, minimal added sugar, functional feel.</p>
+          </div>
+          <div class="card feature">
+            <h3>Premium positioning</h3>
+            <p>Not an energy drink. Not a coffee. A statement beverage.</p>
+          </div>
+          <div class="card feature">
+            <h3>First-mover niche</h3>
+            <p>Ready-to-drink matcha lemonade is still underrepresented in cafés.</p>
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="card cta">
+          <div class="left">
+            <div class="pill">Coming next</div>
+            <h3 style="margin:10px 0 6px; font-size:18px;">More variants, same premium vibe</h3>
+            <p class="muted" style="margin:0; line-height:1.5;">
+              Planned extensions include a lightly sparkling <b>Mo Matcha Soda</b> and a fruit-infused <b>Mo Matcha Berry</b>,
+              launched in phases based on demand.
+            </p>
+          </div>
+          <a class="btn" href="mailto:rtdmatcha026@gmail.com?subject=Mo%20Matcha%20Updates">Get launch updates</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="grid cols2">
+          <div>
+            <h2 class="h2">Pricing</h2>
+            <p class="lead">
+              Premium price, premium experience. Retail and wholesale tiers for cafés and partners.
+            </p>
+          </div>
+
+          <div class="grid cols2">
+            <div class="card priceBox">
+              <div class="pill">Retail</div>
+              <b>CHF 5.50</b>
+              <div class="muted">Per 330 mL bottle</div>
+            </div>
+            <div class="card priceBox">
+              <div class="pill">Wholesale</div>
+              <b>CHF 3.20–3.50</b>
+              <div class="muted">For cafés & partners</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="grid cols3">
+          <div class="card feature">
+            <h3>Break-even clarity</h3>
+            <p>~800 bottles to break even (≈ CHF 2,775).</p>
+          </div>
+          <div class="card feature">
+            <h3>Premium shelf presence</h3>
+            <p>Glass packaging that signals quality instantly.</p>
+          </div>
+          <div class="card feature">
+            <h3>Made for cafés</h3>
+            <p>Wholesale pricing supports partner margins while staying attractive to customers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- STORY -->
+    <section class="section" id="story">
+      <div class="wrap">
+        <div class="grid cols2">
+          <div>
+            <h2 class="h2">Mission & brand</h2>
+            <p class="lead">
+              Mo Matcha brings a premium on-the-go matcha experience: refined, convenient, and lifestyle-focused.
+              “Mo” signals more energy, more focus, more enjoyment.
+            </p>
+          </div>
+
+          <div class="card" style="padding:18px;">
+            <div class="pill">Corporate identity</div>
+            <ul class="list" aria-label="Brand notes">
+              <li><span class="dot" aria-hidden="true"></span><span>Color palette: deep forest green + cream for natural luxury</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span>Tone: friendly, professional, high-end</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span>Slogan: <b>“Mo Matcha, Mo Moments”</b></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="card cta">
+          <div class="left">
+            <div class="pill">Partnerships</div>
+            <h3 style="margin:10px 0 6px; font-size:18px;">Café owner? Boutique retailer?</h3>
+            <p class="muted" style="margin:0; line-height:1.5;">
+              We’ll send wholesale pricing (CHF 3.20–3.50), sampling options, and the short pitch deck.
+            </p>
+          </div>
+          <a class="btn primary" href="mailto:rtdmatcha026@gmail.com?subject=Mo%20Matcha%20Partnership">Partner with us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footerGrid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <img src="logo.png" class="logoMark" alt="Mo Matcha logo">
+            <div>
+              <div style="font-weight:800; letter-spacing:.7px; color: var(--cream);">MO MATCHA</div>
+              <div class="muted">Premium ready-to-drink matcha lemonade • Switzerland</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tinyLinks">
+          <a href="#product">Product</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#where">Where to buy</a>
+          <a href="mailto:rtdmatcha026@gmail.com">Email</a>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;" class="muted">
+        © <span id="year"></span> Mo Matcha. All rights reserved. 
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tiny “newsletter” behavior without a backend.
+    const form = document.getElementById('notifyForm');
+    const emailInput = document.getElementById('email');
+    const toast = document.getElementById('toast');
+
+    function setToast(msg){ toast.textContent = msg; }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = (emailInput.value || "").trim();
+
+      if(!email || !email.includes("@")){
+        setToast("Enter a real email. Your keyboard can handle it.");
+        return;
+      }
+
+      // Save locally for demo purposes
+      const key = "mo_matcha_notify_list";
+      const list = JSON.parse(localStorage.getItem(key) || "[]");
+      if(!list.includes(email)) list.push(email);
+      localStorage.setItem(key, JSON.stringify(list));
+
+      setToast("You’re on the list. When drops happen, you’ll know.");
+      emailInput.value = "";
+    });
+
+    function fakeLink(name){
+      alert(`${name} link placeholder. Replace it with your real @handle URL.`);
+    }
+    window.fakeLink = fakeLink;
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
