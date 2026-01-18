@@ -43,6 +43,57 @@
       color: var(--cream);
       letter-spacing: .2px;
     }
+    /* fix missing product image styles */
+    .productImageCard{
+      padding: 0;
+      overflow: hidden;
+      border-radius: var(--radius2);
+      border: 1px solid var(--line);
+    }
+    .productImg{
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+    .productSplit{align-items: stretch;}
+    .featureStack{margin-top: 18px;}
+
+    /* fix footer logo class clash */
+    .logoImg{
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+
+    /* mobile improvements */
+    @media (max-width: 920px){
+      .wrap{padding: 0 16px;}
+      .section{padding: 48px 0;}
+      .hero{padding: 32px 0 16px;}
+
+      .heroGrid{grid-template-columns: 1fr;}
+      .navlinks{display:none;}
+
+      .cols4{grid-template-columns: 1fr;}
+      .cols3{grid-template-columns: 1fr;}
+      .cols2{grid-template-columns: 1fr;}
+      .statRow{grid-template-columns: 1fr;}
+
+      .heroCard{padding: 18px;}
+      .productCard{padding: 18px;}
+
+      .bottleMock{aspect-ratio: 16 / 11;}
+    }
+
+    /* optional: 2 columns on larger phones */
+    @media (min-width: 520px) and (max-width: 920px){
+      .cols4{grid-template-columns: 1fr 1fr;}
+    }
+
 
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding: 0 20px;}
@@ -126,6 +177,12 @@
         border-radius: 10px;
         border: 1px solid var(--line);
         background: url("logo.png") center / contain no-repeat;
+        }
+    .productSplit{
+        align-items: stretch;
+        }
+    .featureStack{
+      margin-top: 18px;
         }
 
     .navlinks{
