@@ -76,7 +76,7 @@
       .hero{padding: 32px 0 16px;}
 
       .heroGrid{grid-template-columns: 1fr;}
-      .symlinks{display:none;}
+      .navlinks{display:none;}
 
       .cols4{grid-template-columns: 1fr;}
       .cols3{grid-template-columns: 1fr;}
@@ -185,10 +185,10 @@
       margin-top: 18px;
         }
 
-    .symlinks{
+    .navlinks{
       display:flex; gap: 14px; align-items:center;
     }
-    .symlinks a{
+    .navlinks a{
       font-size: 14px;
       color: var(--muted);
       padding: 8px 10px;
@@ -196,7 +196,7 @@
       border: 1px solid transparent;
       transition: background .12s ease, border-color .12s ease, color .12s ease;
     }
-    .symlinks a:hover{
+    .navlinks a:hover{
       background: rgba(243,239,228,.06);
       border-color: rgba(243,239,228,.15);
       color: var(--cream);
@@ -354,7 +354,7 @@
     /* mobile */
     @media (max-width: 920px){
       .heroGrid{grid-template-columns: 1fr;}
-      .symlinks{display:flex; flex-direction:column; gap:8px;}
+      .navlinks{display:none;}
       .cols4{grid-template-columns: 1fr 1fr;}
       .cols3{grid-template-columns: 1fr;}
       .cols2{grid-template-columns: 1fr;}
@@ -377,7 +377,7 @@
           <span>MO MATCHA</span>
         </div>
 
-        <nav class="symlinks" aria-label="Primary">
+        <nav class="navlinks" aria-label="Primary">
           <a href="#product">Product</a>
           <a href="#benefits">Why Mo</a>
           <a href="#pricing">Pricing</a>
